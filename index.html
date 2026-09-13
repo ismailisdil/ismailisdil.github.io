@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İsmail Işdil</title>
+<title>İsmail Işdil — Developer</title>
 <style>
   :root{
-    --paper: #EDEAE3;
-    --paper-edge: #B8B2A4;
-    --ink: #202020;
-    --ink-muted: #6B6558;
-    --accent: #2F5233;
-    --card-bg: #F6F4EF;
+    --bg: #12211E;
+    --bg-raised: #172824;
+    --line: #2B3E39;
+    --text: #EDEAE1;
+    --text-muted: #93A39D;
+    --accent: #C9A227;
   }
 
   * { box-sizing: border-box; }
@@ -19,101 +19,113 @@
   html, body {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    background: var(--paper);
-    background-image:
-      repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 3px);
-    color: var(--ink);
+    background: var(--bg);
+    color: var(--text);
     font-family: Georgia, 'Times New Roman', serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
+    -webkit-font-smoothing: antialiased;
   }
 
-  .card {
-    width: 100%;
-    max-width: 460px;
-    background: var(--card-bg);
-    border: 1px solid var(--paper-edge);
-    padding: 48px 40px 36px;
-    position: relative;
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 72px 28px 48px;
   }
 
-  .card::before {
-    content: "";
-    position: absolute;
-    inset: 8px;
-    border: 1px solid var(--paper-edge);
-    pointer-events: none;
-  }
-
-  .mark {
+  .badge {
+    display: inline-block;
     font-family: 'Courier New', monospace;
     font-size: 11px;
     letter-spacing: 0.14em;
-    color: var(--ink-muted);
-    margin: 0 0 28px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 5px 10px;
+    margin-bottom: 32px;
   }
 
   h1 {
-    font-size: 34px;
+    font-size: 46px;
     font-weight: 400;
-    letter-spacing: 0.01em;
-    margin: 0 0 6px;
-    color: var(--ink);
+    line-height: 1.1;
+    margin: 0 0 12px;
+    color: var(--text);
   }
 
-  .role {
+  .subtitle {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 4px;
+  }
+
+  .location {
     font-family: 'Courier New', monospace;
     font-size: 13px;
-    color: var(--accent);
-    margin: 0 0 32px;
+    color: var(--text-muted);
+    margin: 0 0 40px;
   }
 
-  .rule {
-    height: 1px;
-    background: var(--paper-edge);
-    margin: 0 0 28px;
+  .about {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--text);
+    max-width: 52ch;
+    margin: 0 0 52px;
+  }
+
+  .section-label {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
   }
 
   .links {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin-bottom: 32px;
+    margin-bottom: 56px;
   }
 
-  .link-row {
+  .link-card {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 20px;
     text-decoration: none;
-    color: var(--ink);
-    padding: 6px 0;
-    border-bottom: 1px dashed transparent;
-    transition: border-color 0.15s ease, color 0.15s ease;
+    color: var(--text);
+    padding: 20px 4px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.15s ease, padding-left 0.15s ease;
   }
 
-  .link-row:hover {
-    border-bottom-color: var(--accent);
+  .link-card:hover {
+    background: var(--bg-raised);
+    padding-left: 14px;
+  }
+
+  .link-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .link-name {
+    font-size: 20px;
+  }
+
+  .link-handle {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .link-arrow {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
     color: var(--accent);
-  }
-
-  .link-label {
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--ink-muted);
-    white-space: nowrap;
-  }
-
-  .link-value {
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    text-align: right;
-    word-break: break-all;
+    flex-shrink: 0;
   }
 
   .footer {
@@ -121,47 +133,61 @@
     justify-content: space-between;
     align-items: baseline;
     font-family: 'Courier New', monospace;
-    font-size: 11px;
-    color: var(--ink-muted);
-    letter-spacing: 0.05em;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
   }
 
   @media (max-width: 480px) {
-    .card { padding: 36px 24px 28px; }
-    h1 { font-size: 28px; }
-    .link-row { flex-direction: column; align-items: flex-start; gap: 2px; }
-    .link-value { text-align: left; }
+    .wrap { padding: 48px 20px 36px; }
+    h1 { font-size: 34px; }
+    .about { font-size: 16px; }
+    .link-name { font-size: 18px; }
   }
 </style>
 </head>
 <body>
-  <div class="card">
-    <p class="mark">PROFİL / KİMLİK KARTI</p>
+  <div class="wrap">
+    <span class="badge">ARC ECOSYSTEM CONTRIBUTOR</span>
+
     <h1>İsmail Işdil</h1>
-    <p class="role">geliştirici — arc ekosistemi katılımcısı</p>
+    <p class="subtitle">Developer</p>
+    <p class="location">Istanbul, Turkey</p>
 
-    <div class="rule"></div>
+    <p class="about">
+      Building and contributing within the ARC ecosystem, with a focus on hands-on
+      participation and long-term involvement in decentralized infrastructure. Open
+      to collaboration and always exploring new tools in the space.
+    </p>
 
+    <p class="section-label">CONNECT</p>
     <div class="links">
-      <a class="link-row" href="https://github.com/ismailisdil" target="_blank" rel="noopener">
-        <span class="link-label">GITHUB</span>
-        <span class="link-value">ismailisdil</span>
+      <a class="link-card" href="https://github.com/ismailisdil" target="_blank" rel="noopener">
+        <span class="link-left">
+          <span class="link-name">GitHub</span>
+          <span class="link-handle">github.com/ismailisdil</span>
+        </span>
+        <span class="link-arrow">→</span>
       </a>
-      <a class="link-row" href="https://www.linkedin.com/in/ismail-i%C5%9Fdil-663b81414/" target="_blank" rel="noopener">
-        <span class="link-label">LINKEDIN</span>
-        <span class="link-value">ismail-işdil</span>
+      <a class="link-card" href="https://www.linkedin.com/in/ismail-i%C5%9Fdil-663b81414/" target="_blank" rel="noopener">
+        <span class="link-left">
+          <span class="link-name">LinkedIn</span>
+          <span class="link-handle">in/ismail-işdil</span>
+        </span>
+        <span class="link-arrow">→</span>
       </a>
-      <a class="link-row" href="https://x.com/josepkn12" target="_blank" rel="noopener">
-        <span class="link-label">X</span>
-        <span class="link-value">@josepkn12</span>
+      <a class="link-card" href="https://x.com/josepkn12" target="_blank" rel="noopener">
+        <span class="link-left">
+          <span class="link-name">X</span>
+          <span class="link-handle">@josepkn12</span>
+        </span>
+        <span class="link-arrow">→</span>
       </a>
     </div>
 
-    <div class="rule"></div>
-
     <div class="footer">
-      <span>İstanbul, Türkiye</span>
-      <span>TR</span>
+      <span>ismailisdil.github.io</span>
+      <span>© 2026</span>
     </div>
   </div>
 </body>
