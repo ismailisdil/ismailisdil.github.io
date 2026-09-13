@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İsmail Işdil</title>
+<style>
+  :root{
+    --paper: #EDEAE3;
+    --paper-edge: #B8B2A4;
+    --ink: #202020;
+    --ink-muted: #6B6558;
+    --accent: #2F5233;
+    --card-bg: #F6F4EF;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 3px);
+    color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 460px;
+    background: var(--card-bg);
+    border: 1px solid var(--paper-edge);
+    padding: 48px 40px 36px;
+    position: relative;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid var(--paper-edge);
+    pointer-events: none;
+  }
+
+  .mark {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ink-muted);
+    margin: 0 0 28px;
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+
+  .role {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 32px;
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--paper-edge);
+    margin: 0 0 28px;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .link-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    text-decoration: none;
+    color: var(--ink);
+    padding: 6px 0;
+    border-bottom: 1px dashed transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .link-row:hover {
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .link-label {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  .link-value {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    text-align: right;
+    word-break: break-all;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 36px 24px 28px; }
+    h1 { font-size: 28px; }
+    .link-row { flex-direction: column; align-items: flex-start; gap: 2px; }
+    .link-value { text-align: left; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <p class="mark">PROFİL / KİMLİK KARTI</p>
+    <h1>İsmail Işdil</h1>
+    <p class="role">geliştirici — arc ekosistemi katılımcısı</p>
+
+    <div class="rule"></div>
+
+    <div class="links">
+      <a class="link-row" href="https://github.com/ismailisdil" target="_blank" rel="noopener">
+        <span class="link-label">GITHUB</span>
+        <span class="link-value">ismailisdil</span>
+      </a>
+      <a class="link-row" href="https://www.linkedin.com/in/ismail-i%C5%9Fdil-663b81414/" target="_blank" rel="noopener">
+        <span class="link-label">LINKEDIN</span>
+        <span class="link-value">ismail-işdil</span>
+      </a>
+      <a class="link-row" href="https://x.com/josepkn12" target="_blank" rel="noopener">
+        <span class="link-label">X</span>
+        <span class="link-value">@josepkn12</span>
+      </a>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="footer">
+      <span>İstanbul, Türkiye</span>
+      <span>TR</span>
+    </div>
+  </div>
+</body>
+</html>
